@@ -1,0 +1,5 @@
+1 plov 432 4 18 72
+2 mashed_potato_and_kotleta 398 8 20 48
+3 lasagna 514 12 28 56
+4 pasta_with_chicken 365 24 18 46
+5 Spinach_pie 276 12 13 60
