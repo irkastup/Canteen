@@ -127,9 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BaseEntity.h" />
+    <ClInclude Include="BaseTxtRepository.h" />
+    <ClInclude Include="BaseTxtSerializer.h" />
     <ClInclude Include="Canteen.h" />
+    <ClInclude Include="MealTxtSerializer.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="PersonTxt.h" />
+    <ClInclude Include="PersonTxtSerializer.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Meal.h" />
     <ClInclude Include="Person.h" />
@@ -138,12 +143,17 @@
     <ClInclude Include="takenMeals.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseEntity.cpp" />
+    <ClCompile Include="BaseTxtRepository.cpp" />
+    <ClCompile Include="BaseTxtSerializer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Meal.cpp" />
     <ClCompile Include="Canteen.cpp" />
+    <ClCompile Include="MealTxtSerializer.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonTxt.cpp" />
+    <ClCompile Include="PersonTxtSerializer.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="takenMealsService.cpp" />
     <ClCompile Include="takenMealsTxt.cpp" />

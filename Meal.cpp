@@ -1,6 +1,6 @@
 #include "Meal.h"
 #include <iostream>
-
+using namespace std;
 Meal::Meal(int id, std::string name, int kkal, int protein, int fat, int carbs)
 {
 	this->id = id;
@@ -10,10 +10,13 @@ Meal::Meal(int id, std::string name, int kkal, int protein, int fat, int carbs)
 	this->fat = fat;
 	this->carbs = carbs;
 }
-void Meal::PrintMeal()
+std::string Meal::ToString()
 {
-	std::cout << name << " (" << kkal << " " << protein << " " << fat << " " << carbs << ")" << std::endl;
+	return to_string(id) + ": " + name + " (" + to_string(kkal) + ", " + to_string(protein) + ", " + to_string(fat) + ", " + to_string(carbs) + ")";
 }
+
+
+
 int Meal::GetId()
 {
 	return id;

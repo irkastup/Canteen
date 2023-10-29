@@ -31,7 +31,9 @@ void Menu::Show()
 		}
 		else if (x == 2)
 		{
-			PrintMenu();
+			cout << "Menu card:" << endl;
+			for (int i = 0; i < mealRepo.GetCount(); i++)
+				cout << mealRepo.GetAtIndex(i).ToString() << endl;
 		}
 		else if (x == 3)
 		{
@@ -77,25 +79,8 @@ void Menu::Show()
 		
 }
 
-void Menu::PrintMenu()
-{
-	Meal* meals = mealRepo.GetAll();
 
-	for (int i = 0; i < mealRepo.GetCount(); i++)
-	{
-		meals[i].PrintMeal();
-	}
-		
-}
-void Menu::PrintAllPersons()
-{
-	cout << "All regular customers:\n";
 
-	Person* persons = personRepo.GetAll();
-
-	for (int i = 0; i < personRepo.GetCount(); i++)
-		cout << persons[i].ToString() << endl;
-}
 
 int Menu::AddNewPerson()
 {

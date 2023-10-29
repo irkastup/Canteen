@@ -3,26 +3,18 @@
 #include "Meal.h"
 #include <iostream>
 #include <string>
+#include"BaseTxtRepository.h"
+
 using namespace std;
-class Canteen
+class Canteen : public BaseTxtRepository
 {
-	Meal* availableMeals;
-	int maxMealsCount;
-	int availbeMealsCount;
-
-	void ReadFromFile();
-	void WriteToFile();
-	string fileName;
+	
 public:
-	Canteen(int maxMealsCount = 0, const string fileName = "AvailableMeals.txt");
+	Canteen(int maxMealsCount = 0);
 
-	Meal* GetAll();
-	void AddMeal(Meal meal);
-	//void PrintMenu();
-	int GetCount();
+	void Add(Meal meal);
+	
+	Meal GetAtIndex(int index);
 
 	int GetMeal(int PersonId, int MealNum);
-
-	~Canteen();
-
 };

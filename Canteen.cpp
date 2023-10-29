@@ -1,83 +1,30 @@
 #include "Canteen.h"
+#include"MealTxtSerializer.h"
+
 #include <iostream>
-#include <fstream>
+
 #include "Meal.h"
 #include <string>
 using namespace std;
 
-Canteen::Canteen(int maxMealsCount, const string fileName)
+Canteen::Canteen(int maxMealsCount) :
+	BaseTxtRepository("AvailableMeals.txt", new MealTxtSerializer, capacity)
 {
-	cout << "Canteen constructor done" << fileName << endl;
-	this->availableMeals = new Meal[maxMealsCount];
-	this->maxMealsCount = maxMealsCount;
-	this->availbeMealsCount = 0;
-	this->fileName = fileName;
 	
-	ReadFromFile();
 }
-Canteen::~Canteen()
+
+void Canteen::Add(Meal meal)
 {
-	cout << "Canteen destructor worked\n";
-	WriteToFile();
-
-	delete[] availableMeals;
+	BaseTxtRepository::Add(new Meal(meal));
 }
-int Canteen::GetCount()
+
+Meal Canteen::GetAtIndex(int index)
 {
-	return availbeMealsCount;
-}
-void Canteen::AddMeal(Meal meal) {
-
-	availableMeals[availbeMealsCount] = meal;
-	availbeMealsCount += 1;
-}
-
-Meal* Canteen::GetAll()
-{
-	return availableMeals;
+	BaseEntity* entity = BaseTxtRepository::GetAtIndex(index);
+	return  *static_cast<Meal*>(entity);
 }
 
 
-void Canteen::ReadFromFile()
-{
-	ifstream inputFile(fileName);
-	cout << "read from file function\n";
-	if (inputFile.is_open()) {
-		int id;
-		std::string MealName;
-		int kkal;
-		int protein;
-		int fat;
-		int carbs;
-		cout << "file opened";
-		while (inputFile >> id >> MealName >> kkal >> protein >> fat >> carbs) {
-			AddMeal(Meal(id, MealName, kkal, protein, fat, carbs));
-			cout << "meal added\n";
-		}
-		inputFile.close();
-	}
-
-}
-void Canteen::WriteToFile()
-{
-	ofstream fout(fileName);
-
-	for (int i = 0; i < availbeMealsCount; i++)
-	{
-		fout
-			<< availableMeals[i].GetId() << " "
-			<< availableMeals[i].GetName() << " "
-			<< availableMeals[i].GetKkal() << " "
-			<< availableMeals[i].GetProtein() << " "
-			<< availableMeals[i].GetFat() << " "
-			<< availableMeals[i].GetCarbs();
-
-		if (i < (availbeMealsCount - 1))
-			fout << endl;
-	}
-
-	fout.close();
-}
 
 int Canteen::GetMeal(int PersonId, int MealNum)
 {

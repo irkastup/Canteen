@@ -13,8 +13,5 @@ void PersonTxtSerializer::Write(ofstream& fout, BaseEntity* entity)
 	Person* pperson = static_cast<Person*>(entity);
 	fout
 		<< pperson->GetId() << " "
-		<< pperson->GetSex() << " "
-		<< pperson->GetAge() << " "
-		<< pperson->GetWeight() << " "
-		<< pperson->GetHeight();
+		<< pperson->GetName();
 }
