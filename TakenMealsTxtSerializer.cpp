@@ -14,5 +14,5 @@ void TakenMealsTxtSerializer::Write(ofstream& fout, BaseEntity* entity)
 
 	fout << endl
 		<< takenMeal->GetPersonId() << " "
-		<< takenMeal->GetMealId() << endl;
+		<< takenMeal->GetMealId();
 }
