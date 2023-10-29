@@ -21,7 +21,7 @@ public:
 	//void PrintMenu();
 	int GetCount();
 
-	int GetMeal(int PersonId);
+	int GetMeal(int PersonId, int MealNum);
 
 	~Canteen();
 

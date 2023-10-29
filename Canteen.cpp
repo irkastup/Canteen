@@ -78,32 +78,16 @@ void Canteen::WriteToFile()
 
 	fout.close();
 }
-/*
-void Canteen::PrintMenu()
+
+int Canteen::GetMeal(int PersonId, int MealNum)
 {
-	std::cout << "Available meals: (kkal, protein, fat, carbs in portion)\n" ;
-	for (int i = 0; i < availbeMealsCount; i++)
-	{
-		std::cout << i + 1 << ". ";
-		availableMeals[i].PrintMeal();
-	}
 
-}*/
-
-int Canteen::GetMeal(int PersonId)
-{
-	int MealNum;
-
-	std::cout << "\nTo choose your meal enter its number\n";
-	std::cin >> MealNum;
-
-	//availableMeals[availbeMealsCount] = Get
+	// Save to the file
 	ofstream fout("takenMeals.txt", std::ios_base::app);
-	
 	fout << PersonId << " " << MealNum << endl;
-
 	fout.close();
 
+	
 
 	std::cout << "\nIt's your ";
 	availableMeals[MealNum - 1].PrintMeal();

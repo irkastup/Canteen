@@ -14,12 +14,12 @@ using namespace std;
 	void TakenMealsTxt::ReadFromFile()
 	{
 		ifstream fin(fileName);
-		int personId, carId;
+		int personId, mealId;
 
 		while (!fin.eof())
 		{
-			fin >> personId >> carId;
-			items[count++] = takenMeals(personId, carId);
+			fin >> personId >> mealId;
+			items[count++] = takenMeals(personId, mealId);
 		}
 
 		fin.close();
@@ -30,12 +30,9 @@ using namespace std;
 
 		for (int i = 0; i < count; i++)
 		{
-			fout
+			fout<<endl
 				<< items[i].GetPersonId() << " "
-				<< items[i].GetMealId();
-
-			if (i < (count - 1))
-				fout << endl;
+				<< items[i].GetMealId() << endl;
 		}
 
 		fout.close();

@@ -35,25 +35,28 @@ void Menu::Show()
 		}
 		else if (x == 3)
 		{
-			int MealNum;
 			Queue mainQueue(7);
 
 			std::cin.get();
 			mainQueue.Wait();
 
-			int CustId;
+			int PersId;
 			cout << "What's your person id? (If you are new customer enter 0)" << endl;
-			cin >> CustId;
-			if (CustId == 0)
+			cin >> PersId;
+			if (PersId == 0)
 			{
-				CustId = AddNewPerson();
-				cout << "Your personal id is " << CustId << endl;
+				PersId = AddNewPerson();
+				cout << "Your personal id is " << PersId << endl;
 			}
 
-			//cout << "Enter meal number that you want to\n";
-			//cin >> MealNum;
+			int MealNum;
+			std::cout << "\nTo choose your meal enter its number\n";
+			std::cin >> MealNum;
 
-			mealRepo.GetMeal(CustId);
+			mealRepo.GetMeal(PersId, MealNum);
+
+			takenMeals newTakenMeal{ PersId, MealNum };
+			takenMealsRepo.Add(newTakenMeal);
 		}
 		else if (x == 4)
 		{
