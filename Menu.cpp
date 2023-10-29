@@ -78,6 +78,26 @@ void Menu::Show()
 		
 }
 
+void Menu::PrintMenu()
+{
+	BaseEntity** meals = mealRepo.GetAll();
+
+	for (int i = 0; i < mealRepo.GetCount(); i++)
+	{
+		static_cast<Meal*>(meals[i])->PrintMeal();
+
+	}
+
+}
+void Menu::PrintAllPersons()
+{
+	cout << "All regular customers:\n";
+
+	BaseEntity** persons = personRepo.GetAll();
+
+	for (int i = 0; i < personRepo.GetCount(); i++)
+		cout << static_cast<Person*>(persons[i])->ToString() << endl;
+}
 
 
 
