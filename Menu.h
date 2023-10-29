@@ -12,8 +12,8 @@ public:
 	Menu();
 private:
 	Canteen mealRepo{20};
-	PersonTxt personRepo{100};
-	TakenMealsTxt takenMealsRepo{100};
+	PersonTxt personRepo{};
+	TakenMealsTxt takenMealsRepo{};
 	TakenMealsService takenMealsService;
 
 	

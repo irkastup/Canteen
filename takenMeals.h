@@ -1,5 +1,8 @@
 #pragma once
-class takenMeals
+
+#include "BaseEntity.h"
+
+class takenMeals : public BaseEntity
 {
 	int PersonId;
 	int MealId;

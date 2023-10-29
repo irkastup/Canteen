@@ -5,28 +5,35 @@ TakenMealsService::TakenMealsService(TakenMealsTxt* takenMeaksRepo, Canteen* Mea
 
 }
 
-void TakenMealsService::GetTakenMealsByPerson(int personId, Meal*& MealsOut, int& countOut)
+void TakenMealsService::GetTakenMealsByPerson(int personId, Meal** MealsOut, int& countOut)
 {
-	takenMeals* takenMeals = takenMealsRepo->GetAll();
+
+	BaseEntity** tMeals = takenMealsRepo->GetAll();
 	int takenMealsCount = takenMealsRepo->GetCount();
 
-	Meal* meals = MealsRepo->GetAll();
+	BaseEntity** meals = MealsRepo->GetAll();
 	int MealsCount = MealsRepo->GetCount();
 
-	MealsOut = new Meal[20];
 	countOut = 0;
 
 	for (int i = 0; i < takenMealsCount; i++)
 	{
-		if (takenMeals[i].GetPersonId() != personId)
+		takenMeals* tMeal = static_cast<takenMeals*>(tMeals[i]);
+			
+		if (tMeal->GetPersonId() != personId)
 			continue;
 
-		int carId = takenMeals[i].GetMealId();
+		int mealId = tMeal->GetMealId();
 		for (int j = 0; j < MealsCount; j++)
-			if (meals[j].GetId() == carId)
+		{
+			Meal* meal = static_cast<Meal*>(meals[j]);
+
+			if (meal->GetId() == mealId)
 			{
-				MealsOut[countOut++] = meals[j];
+				MealsOut[countOut++] = meal;
 				break;
 			}
+		}
+
 	}
 }

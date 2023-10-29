@@ -8,7 +8,7 @@
 using namespace std;
 
 Canteen::Canteen(int maxMealsCount) :
-	BaseTxtRepository("AvailableMeals.txt", new MealTxtSerializer, capacity)
+	BaseTxtRepository("AvailableMeals.txt", new MealTxtSerializer)
 {
 	
 }
@@ -37,7 +37,10 @@ int Canteen::GetMeal(int PersonId, int MealNum)
 	
 
 	std::cout << "\nIt's your ";
-	availableMeals[MealNum - 1].PrintMeal();
+	BaseEntity* entity = items[MealNum - 1];
+	Meal* meal = static_cast<Meal*>(entity);
+
+	meal->PrintMeal();
 	std::cout<< "Enjoy!\n\n";
 
 	return 0;

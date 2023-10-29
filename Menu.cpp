@@ -57,8 +57,7 @@ void Menu::Show()
 
 			mealRepo.GetMeal(PersId, MealNum);
 
-			takenMeals newTakenMeal{ PersId, MealNum };
-			takenMealsRepo.Add(newTakenMeal);
+			takenMealsRepo.Add(new takenMeals(PersId, MealNum));
 		}
 		else if (x == 4)
 		{
@@ -88,8 +87,8 @@ int Menu::AddNewPerson()
 	{
 	
 		int id = personRepo.GetCount() + 1;
-		Person newPerson{id};
-		newPerson.Input();
+		Person* newPerson = new Person(id);
+		newPerson->Input();
 		personRepo.Add(newPerson);
 		
 		cout << "Person added successfully!\n";

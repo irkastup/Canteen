@@ -19,6 +19,11 @@ BaseTxtRepository::~BaseTxtRepository()
 	delete[] items;
 }
 
+BaseEntity** BaseTxtRepository::GetAll()
+{
+	return items;
+}
+
 void BaseTxtRepository::Add(BaseEntity* entity)
 {
 	items[count] = entity;

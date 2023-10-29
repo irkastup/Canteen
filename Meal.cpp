@@ -15,12 +15,11 @@ std::string Meal::ToString()
 	return to_string(id) + ": " + name + " (" + to_string(kkal) + ", " + to_string(protein) + ", " + to_string(fat) + ", " + to_string(carbs) + ")";
 }
 
-
-
-int Meal::GetId()
+void Meal::PrintMeal()
 {
-	return id;
+	std::cout << name << " (" << kkal << " " << protein << " " << fat << " " << carbs << ")" << std::endl;
 }
+
 std::string Meal::GetName()
 {
 	return name;

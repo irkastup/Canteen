@@ -3,9 +3,11 @@
 
 BaseEntity* PersonTxtSerializer::Read(ifstream& fin)
 {
-	int id; string name;
-	fin >> id >> name;
-	return new Person(id, name);
+	int id, age; char sex; float weight, height;
+
+	fin >> id >> sex >> age >> weight >> height;
+
+	return new Person(id, sex, age, weight, height);
 }
 
 void PersonTxtSerializer::Write(ofstream& fout, BaseEntity* entity)
@@ -13,5 +15,8 @@ void PersonTxtSerializer::Write(ofstream& fout, BaseEntity* entity)
 	Person* pperson = static_cast<Person*>(entity);
 	fout
 		<< pperson->GetId() << " "
-		<< pperson->GetName();
+		<< pperson->GetSex() << " "
+		<< pperson->GetAge() << " "
+		<< pperson->GetWeight() << " "
+		<< pperson->GetHeight();
 }

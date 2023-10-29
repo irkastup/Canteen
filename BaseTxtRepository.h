@@ -6,6 +6,7 @@ using namespace std;
 
 class BaseTxtRepository
 {
+protected:
 	BaseEntity** items;
 	int count;
 
@@ -20,6 +21,7 @@ public:
 	int GetCount();
 	BaseEntity* GetAtIndex(int index);
 	~BaseTxtRepository();
+	BaseEntity** GetAll();
 };
 
 

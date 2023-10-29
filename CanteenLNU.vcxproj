@@ -141,6 +141,7 @@
     <ClInclude Include="takenMealsService.h" />
     <ClInclude Include="takenMealsTxt.h" />
     <ClInclude Include="takenMeals.h" />
+    <ClInclude Include="TakenMealsTxtSerializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseEntity.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="takenMealsService.cpp" />
     <ClCompile Include="takenMealsTxt.cpp" />
     <ClCompile Include="takenMeals.cpp" />
+    <ClCompile Include="TakenMealsTxtSerializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="AvailableMeals.txt" />

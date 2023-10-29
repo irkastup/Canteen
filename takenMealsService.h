@@ -10,7 +10,7 @@ private:
 
 public:
 	TakenMealsService(TakenMealsTxt* takenMealsRepo, Canteen* MealsRepo);
-	void GetTakenMealsByPerson(int personId, Meal*& MealsOut, int& countOut);
+	void GetTakenMealsByPerson(int personId, Meal** MealsOut, int& countOut);
 };
 
 
