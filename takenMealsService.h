@@ -2,14 +2,14 @@
 #include"takenMealsTxt.h"
 #include"Canteen.h"
 
-class takenMealsService
+class TakenMealsService
 {
 private:
-	takenMealsTxt* takenMealsRepo;
+	TakenMealsTxt* takenMealsRepo;
 	Canteen* MealsRepo;
 
 public:
-	takenMealsService(takenMealsTxt* takenMealsRepo, Canteen* MealsRepo);
+	TakenMealsService(TakenMealsTxt* takenMealsRepo, Canteen* MealsRepo);
 	void GetTakenMealsByPerson(int personId, Meal*& MealsOut, int& countOut);
 };
 

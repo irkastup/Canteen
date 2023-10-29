@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class takenMealsTxt
+class TakenMealsTxt
 {
 	takenMeals* items;
 	int count;
@@ -12,10 +12,10 @@ class takenMealsTxt
 	void WriteToFile();
 	string fileName;
 public:
-	takenMealsTxt(int capacity = 100);
+	TakenMealsTxt(int capacity);
 	void Add(takenMeals takenMeals);
 	takenMeals* GetAll();
 	int GetCount();
-	~takenMealsTxt();
+	~TakenMealsTxt();
 };
 

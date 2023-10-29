@@ -2,7 +2,7 @@
 #include<fstream>
 using namespace std;
 
-	takenMealsTxt::takenMealsTxt(int capacity)
+	TakenMealsTxt::TakenMealsTxt(int capacity)
 	{
 		fileName = "takenMeals.txt";
 		count = 0;
@@ -11,7 +11,7 @@ using namespace std;
 	}
 
 
-	void takenMealsTxt::ReadFromFile()
+	void TakenMealsTxt::ReadFromFile()
 	{
 		ifstream fin(fileName);
 		int personId, carId;
@@ -24,7 +24,7 @@ using namespace std;
 
 		fin.close();
 	}
-	void takenMealsTxt::WriteToFile()
+	void TakenMealsTxt::WriteToFile()
 	{
 		ofstream fout(fileName);
 
@@ -43,21 +43,21 @@ using namespace std;
 	
 
 
-	void takenMealsTxt::Add(takenMeals takenMeals)
+	void TakenMealsTxt::Add(takenMeals takenMeals)
 	{
 		items[count] = takenMeals;
 		count++;
 	}
-	takenMeals* takenMealsTxt::GetAll()
+	takenMeals* TakenMealsTxt::GetAll()
 	{
 		return items;
 	}
-	int takenMealsTxt::GetCount()
+	int TakenMealsTxt::GetCount()
 	{
 		return count;
 	}
 
-	takenMealsTxt::~takenMealsTxt()
+	TakenMealsTxt::~TakenMealsTxt()
 	{
 		WriteToFile();
 		delete[] items;

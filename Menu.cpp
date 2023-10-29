@@ -6,14 +6,11 @@ using namespace std;
 
 Menu::Menu() : takenMealsService(&takenMealsRepo, &mealRepo)
 {
-
+	
 }
 
 void Menu::Show()
 {
-	Canteen mainCanteen(20);
-	//mainCanteen.ReadFromFile("AvailableMeals.txt", mainCanteen);
-
 
 	std::cout << "Welcome to the canteen!\n\n";
 
@@ -38,6 +35,7 @@ void Menu::Show()
 		}
 		else if (x == 3)
 		{
+			int MealNum;
 			Queue mainQueue(7);
 
 			std::cin.get();
@@ -51,8 +49,11 @@ void Menu::Show()
 				CustId = AddNewPerson();
 				cout << "Your personal id is " << CustId << endl;
 			}
-			//mainCanteen.PrintMenu();
-			mainCanteen.GetMeal(CustId);
+
+			//cout << "Enter meal number that you want to\n";
+			//cin >> MealNum;
+
+			mealRepo.GetMeal(CustId);
 		}
 		else if (x == 4)
 		{
@@ -97,21 +98,12 @@ int Menu::AddNewPerson()
 {
 	try
 	{
-		//string name;
-		char sex;
-		int age;
-		float weight, height;
-
-		cout << "Enter person details:\n";
-		cout << "sex: "; cin >> sex;
-		cout << "age: "; cin >> age;
-		cout << "weight: "; cin >> weight;
-		cout << "height: "; cin >> height;
-
+	
 		int id = personRepo.GetCount() + 1;
-		Person person(id, sex, age, weight, height);
-		personRepo.Add(person);
-
+		Person newPerson{id};
+		newPerson.Input();
+		personRepo.Add(newPerson);
+		
 		cout << "Person added successfully!\n";
 		return id;
 	}

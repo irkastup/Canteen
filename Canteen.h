@@ -12,7 +12,7 @@ class Canteen
 
 	void ReadFromFile();
 	void WriteToFile();
-	const string fileName;
+	string fileName;
 public:
 	Canteen(int maxMealsCount = 0, const string fileName = "AvailableMeals.txt");
 

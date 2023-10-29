@@ -1,11 +1,11 @@
 #include "takenMealsService.h"
 
-takenMealsService::takenMealsService(takenMealsTxt* takenMeaksRepo, Canteen* MealsRepo) : takenMealsRepo(takenMeaksRepo), MealsRepo(MealsRepo)
+TakenMealsService::TakenMealsService(TakenMealsTxt* takenMeaksRepo, Canteen* MealsRepo) : takenMealsRepo(takenMeaksRepo), MealsRepo(MealsRepo)
 {
 
 }
 
-void takenMealsService::GetTakenMealsByPerson(int personId, Meal*& MealsOut, int& countOut)
+void TakenMealsService::GetTakenMealsByPerson(int personId, Meal*& MealsOut, int& countOut)
 {
 	takenMeals* takenMeals = takenMealsRepo->GetAll();
 	int takenMealsCount = takenMealsRepo->GetCount();

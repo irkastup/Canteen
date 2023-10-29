@@ -6,14 +6,14 @@ using namespace std;
 
 class PersonTxt
 {
-	Person* items;
+	Person* people;
 	int count;
 
 	void ReadFromFile();
 	void WriteToFile();
 	string fileName;
 public:
-	PersonTxt(int capacity = 100);
+	PersonTxt(int capacity);
 	void Add(Person person);
 	Person* GetAll();
 	int GetCount();

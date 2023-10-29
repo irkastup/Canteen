@@ -11,10 +11,10 @@ public:
 	void Show();
 	Menu();
 private:
-	Canteen mealRepo;
-	PersonTxt personRepo;
-	takenMealsTxt takenMealsRepo;
-	takenMealsService takenMealsService;
+	Canteen mealRepo{20};
+	PersonTxt personRepo{100};
+	TakenMealsTxt takenMealsRepo{100};
+	TakenMealsService takenMealsService;
 
 	
 	

@@ -11,6 +11,7 @@ Canteen::Canteen(int maxMealsCount, const string fileName)
 	this->availableMeals = new Meal[maxMealsCount];
 	this->maxMealsCount = maxMealsCount;
 	this->availbeMealsCount = 0;
+	this->fileName = fileName;
 	
 	ReadFromFile();
 }
@@ -99,9 +100,7 @@ int Canteen::GetMeal(int PersonId)
 	//availableMeals[availbeMealsCount] = Get
 	ofstream fout("takenMeals.txt", std::ios_base::app);
 	
-	fout
-		<< PersonId << " "
-		<< MealNum << endl;
+	fout << PersonId << " " << MealNum << endl;
 
 	fout.close();
 

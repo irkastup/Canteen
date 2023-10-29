@@ -6,25 +6,25 @@ PersonTxt::PersonTxt(int capacity)
 {
 	fileName = "Persons.txt";
 	count = 0;
-	items = new Person[capacity];
+	people = new Person[capacity];
 	ReadFromFile();
 }
 
 PersonTxt::~PersonTxt()
 {
 	WriteToFile();
-	delete[] items;
+	delete[] people;
 }
 
 void PersonTxt::Add(Person Person)
 {
-	items[count] = Person;
+	people[count] = Person;
 	count++;
 }
 
 Person* PersonTxt::GetAll()
 {
-	return items;
+	return people;
 }
 
 int PersonTxt::GetCount()
@@ -40,7 +40,7 @@ void PersonTxt::ReadFromFile()
 	while (!fin.eof()) // eof -> true\false
 	{
 		fin >> id >> sex >> age >> weight >> height;
-		items[count++] = Person(id, sex, age, weight, height);
+		people[count++] = Person(id, sex, age, weight, height);
 	}
 
 	fin.close();
@@ -53,11 +53,11 @@ void PersonTxt::WriteToFile()
 	for (int i = 0; i < count; i++)
 	{
 		fout
-			<< items[i].GetId() << " "
-			<< items[i].GetSex() << " "
-			<< items[i].GetAge() << " "
-			<< items[i].GetWeight() << " "
-			<< items[i].GetHeight();
+			<< people[i].GetId() << " "
+			<< people[i].GetSex() << " "
+			<< people[i].GetAge() << " "
+			<< people[i].GetWeight() << " "
+			<< people[i].GetHeight();
 
 		if (i < (count - 1))
 			fout << endl;
