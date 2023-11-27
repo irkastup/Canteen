@@ -4,9 +4,10 @@
 #include <iostream>
 #include <string>
 #include"BaseTxtRepository.h"
+#include"AMealRepository.h"
 
 using namespace std;
-class Canteen : public BaseTxtRepository
+class Canteen : private BaseTxtRepository, public AMealRepository
 {
 	
 public:
@@ -16,5 +17,6 @@ public:
 	
 	Meal GetAtIndex(int index);
 
-	int GetMeal(int PersonId, int MealNum);
+	//int GetMeal(int PersonId, int MealNum);
+	int GetCount();
 };

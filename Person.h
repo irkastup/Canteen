@@ -4,6 +4,7 @@
 
 class Person : public BaseEntity {
 
+	int id;
 	char sex;
 	int age;
 	float weight;
@@ -11,6 +12,7 @@ class Person : public BaseEntity {
 public:
 	Person(int id = 0, char sex = 'm', int age = 0, float weight = 0, float height = 0);
 
+	int GetId() const;
 	char GetSex() const;
 	int GetAge() const;
 	float GetWeight() const;

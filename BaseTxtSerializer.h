@@ -10,3 +10,6 @@ public:
 	virtual void Write(ofstream& fout, BaseEntity* entity);
 };
 
+
+
+//virtual function read additional info

@@ -17,9 +17,13 @@ std::string Meal::ToString()
 
 void Meal::PrintMeal()
 {
-	std::cout << name << " (" << kkal << " " << protein << " " << fat << " " << carbs << ")" << std::endl;
+	std::cout <<id<<": "<< name << " (" << kkal << " " << protein << " " << fat << " " << carbs << ")" << std::endl;
 }
 
+int Meal::GetId()
+{
+	return id;
+}
 std::string Meal::GetName()
 {
 	return name;

@@ -1,16 +1,16 @@
 #pragma once
 #include"takenMealsTxt.h"
-#include"Canteen.h"
+#include"AMealRepository.h"
 
 class TakenMealsService
 {
 private:
-	TakenMealsTxt* takenMealsRepo;
-	Canteen* MealsRepo;
+	takenMealsTxt* takenMealsRepo;
+	AMealRepository* mealsRepo;
 
 public:
-	TakenMealsService(TakenMealsTxt* takenMealsRepo, Canteen* MealsRepo);
-	void GetTakenMealsByPerson(int personId, Meal** MealsOut, int& countOut);
+	TakenMealsService(takenMealsTxt* takenMealsRepo, AMealRepository* mealsRepo);
+	void GetTakenMealsByPerson(int personId, Meal*& mealsOut, int& countOut);
 };
 
 

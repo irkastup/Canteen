@@ -60,6 +60,33 @@
     <ClInclude Include="TakenMealsTxtSerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AMealRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ARepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="APersonRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MealTxtTemplateRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MealTxtTemplateSerializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTxtTemplateRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MealMemoryRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -108,6 +135,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TakenMealsTxtSerializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MealMemoryRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

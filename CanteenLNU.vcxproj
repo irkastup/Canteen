@@ -127,11 +127,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AFactory.h" />
+    <ClInclude Include="AMealRepository.h" />
+    <ClInclude Include="APersonRepository.h" />
+    <ClInclude Include="ARepository.h" />
     <ClInclude Include="BaseEntity.h" />
     <ClInclude Include="BaseTxtRepository.h" />
     <ClInclude Include="BaseTxtSerializer.h" />
+    <ClInclude Include="BaseTxtTemplateRepository.h" />
     <ClInclude Include="Canteen.h" />
+    <ClInclude Include="FactoryProvider.h" />
+    <ClInclude Include="MealMemoryRepository.h" />
     <ClInclude Include="MealTxtSerializer.h" />
+    <ClInclude Include="MealTxtTemplateRepository.h" />
+    <ClInclude Include="MealTxtTemplateSerializer.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="PersonTxt.h" />
     <ClInclude Include="PersonTxtSerializer.h" />
@@ -150,6 +159,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Meal.cpp" />
     <ClCompile Include="Canteen.cpp" />
+    <ClCompile Include="MealMemoryRepository.cpp" />
     <ClCompile Include="MealTxtSerializer.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Person.cpp" />

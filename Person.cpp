@@ -12,6 +12,11 @@ Person::Person(int id, char sex, int age, float weight, float height)
 	this->weight = weight;
 }
 
+int Person::GetId() const
+{
+	return id;
+}
+
 char Person::GetSex() const
 {
 	return sex;

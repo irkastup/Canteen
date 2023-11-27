@@ -1,39 +1,33 @@
 #include "takenMealsService.h"
 
-TakenMealsService::TakenMealsService(TakenMealsTxt* takenMeaksRepo, Canteen* MealsRepo) : takenMealsRepo(takenMeaksRepo), MealsRepo(MealsRepo)
+
+TakenMealsService::TakenMealsService(takenMealsTxt* takenMealsRepo, AMealRepository* mealsRepo) : takenMealsRepo(takenMealsRepo), mealsRepo(mealsRepo)
 {
 
 }
 
-void TakenMealsService::GetTakenMealsByPerson(int personId, Meal** MealsOut, int& countOut)
+void TakenMealsService::GetTakenMealsByPerson(int personId, Meal*& mealsOut, int& countOut)
 {
 
-	BaseEntity** tMeals = takenMealsRepo->GetAll();
+	takenMeals* takenMeals = takenMealsRepo->GetAll();
 	int takenMealsCount = takenMealsRepo->GetCount();
 
-	BaseEntity** meals = MealsRepo->GetAll();
-	int MealsCount = MealsRepo->GetCount();
+	int mealsCount = mealsRepo->GetCount();
 
+	mealsOut = new Meal[20];
 	countOut = 0;
 
 	for (int i = 0; i < takenMealsCount; i++)
 	{
-		takenMeals* tMeal = static_cast<takenMeals*>(tMeals[i]);
-			
-		if (tMeal->GetPersonId() != personId)
+		if (takenMeals[i].GetPersonId() != personId)
 			continue;
 
-		int mealId = tMeal->GetMealId();
-		for (int j = 0; j < MealsCount; j++)
-		{
-			Meal* meal = static_cast<Meal*>(meals[j]);
-
-			if (meal->GetId() == mealId)
+		int carId = takenMeals[i].GetMealId();
+		for (int j = 0; j < mealsCount; j++)
+			if (mealsRepo->GetAtIndex(j).GetId() == carId)
 			{
-				MealsOut[countOut++] = meal;
+				mealsOut[countOut++] = mealsRepo->GetAtIndex(i);
 				break;
 			}
-		}
-
 	}
 }

@@ -1,6 +1,9 @@
 #pragma once
 
-#include"Canteen.h"
+#include"FactoryProvider.h"
+#include"AMealRepository.h"
+
+//#include"Canteen.h"
 #include"PersonTxt.h"
 #include"takenMealsTxt.h"
 #include"takenMealsService.h"
@@ -11,10 +14,11 @@ public:
 	void Show();
 	Menu();
 private:
-	Canteen mealRepo{20};
-	PersonTxt personRepo{};
-	TakenMealsTxt takenMealsRepo{};
-	TakenMealsService takenMealsService;
+	FactoryProvider factoryProvider;
+	AMealRepository* mealRepo;
+	PersonTxt personRepo;
+	takenMealsTxt takenMealsRepo;
+	TakenMealsService* takenMealsService;
 
 	
 	
@@ -25,3 +29,23 @@ private:
 
 };
 
+/*
+int Canteen::GetMeal(int PersonId, int MealNum)
+{
+
+	// Save to the file
+	ofstream fout("takenMeals.txt", std::ios_base::app);
+	fout << PersonId << " " << MealNum << endl;
+	fout.close();
+
+
+
+	std::cout << "\nIt's your ";
+	BaseEntity* entity = items[MealNum - 1];
+	Meal* meal = static_cast<Meal*>(entity);
+
+	meal->PrintMeal();
+	std::cout<< "Enjoy!\n\n";
+
+	return 0;
+}*/

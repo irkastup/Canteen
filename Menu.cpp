@@ -4,9 +4,10 @@
 #include<iostream>
 using namespace std;
 
-Menu::Menu() : takenMealsService(&takenMealsRepo, &mealRepo)
+Menu::Menu()
 {
-	
+	mealRepo = factoryProvider.GetFactory()->GetMealRepository();
+	takenMealsService = new TakenMealsService(&takenMealsRepo, mealRepo);
 }
 
 void Menu::Show()
@@ -16,7 +17,16 @@ void Menu::Show()
 
 	while (true)
 	{
-		std::cout << "\nThere's some options that you can choose:\n\t1) Calculate nutrition norm\n\t2) Take a menu card\n\t3) Take an order\n\t4) Print all regular customers\n\t5)Add a new regular customer\n\nEnter a number of action you would like to do.\n";
+		std::cout << "\nThere's some options that you can choose:\n\t"
+			<< "1) Calculate nutrition norm\n\t"
+			<< "2) Take a menu card\n\t"
+			<< "3) Take an order\n\t"
+			<< "4) Print all regular customers\n\t"
+			<< "5) Add a new regular customer\n\t"
+			<< "6) Show all meals taken by person\n\n"
+
+
+			<< "Enter a number of action you would like to do.\n";
 		
 		int x;
 		std::cin >> x;
@@ -32,8 +42,9 @@ void Menu::Show()
 		else if (x == 2)
 		{
 			cout << "Menu card:" << endl;
-			for (int i = 0; i < mealRepo.GetCount(); i++)
-				cout << mealRepo.GetAtIndex(i).ToString() << endl;
+
+			for (int i = 0; i < mealRepo->GetCount(); i++)
+				cout << mealRepo->GetAtIndex(i).ToString() << endl;
 		}
 		else if (x == 3)
 		{
@@ -42,22 +53,14 @@ void Menu::Show()
 			std::cin.get();
 			mainQueue.Wait();
 
-			int PersId;
-			cout << "What's your person id? (If you are new customer enter 0)" << endl;
-			cin >> PersId;
-			if (PersId == 0)
-			{
-				PersId = AddNewPerson();
-				cout << "Your personal id is " << PersId << endl;
-			}
-
-			int MealNum;
+			int personId, MealNum;
+			//cout << "Enter info:\n";
+			cout << "What's your person id?: "; cin >> personId;
 			std::cout << "\nTo choose your meal enter its number\n";
 			std::cin >> MealNum;
 
-			mealRepo.GetMeal(PersId, MealNum);
 
-			takenMealsRepo.Add(new takenMeals(PersId, MealNum));
+			takenMealsRepo.Add(takenMeals(personId, MealNum));
 		}
 		else if (x == 4)
 		{
@@ -69,6 +72,21 @@ void Menu::Show()
 			cout << "This person's id: " << NewId << endl;
 
 		}
+		else if (x == 6)
+		{
+			int pid; Meal* PersonsMeals = new Meal(); int mcount;
+			cout << "Enter person id: " << endl;
+			cin >> pid;
+			takenMealsService->GetTakenMealsByPerson(pid, PersonsMeals, mcount);
+			if (mcount == 0)
+			{
+				cout << "This person don't have any order" << endl;
+			}
+			for (int i = 0; i < mcount; i++)
+			{
+				cout << endl << i + 1 << ")  " << PersonsMeals[i].ToString() << endl;
+			}
+		}
 		else
 		{
 			std::cout << "Thank you for visiting our canteen!\n\n";
@@ -77,8 +95,8 @@ void Menu::Show()
 	}
 		
 }
-
-void Menu::PrintMenu()
+/*
+* void Menu::PrintMenu()
 {
 	BaseEntity** meals = mealRepo.GetAll();
 
@@ -89,6 +107,8 @@ void Menu::PrintMenu()
 	}
 
 }
+*/
+
 void Menu::PrintAllPersons()
 {
 	cout << "All regular customers:\n";
@@ -109,7 +129,7 @@ int Menu::AddNewPerson()
 		int id = personRepo.GetCount() + 1;
 		Person* newPerson = new Person(id);
 		newPerson->Input();
-		personRepo.Add(newPerson);
+		personRepo.Add(*newPerson);
 		
 		cout << "Person added successfully!\n";
 		return id;

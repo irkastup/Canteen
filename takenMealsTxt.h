@@ -1,15 +1,21 @@
 #pragma once
-#include "takenMeals.h"
-#include "BaseTxtRepository.h"
-#include "TakenMealsTxtSerializer.h"
-#include <iostream>
+#include"takenMeals.h"
+#include<string>
 using namespace std;
 
-class TakenMealsTxt : public BaseTxtRepository
+class takenMealsTxt
 {
-public:
-	TakenMealsTxt() : BaseTxtRepository("takenMeals.txt", new TakenMealsTxtSerializer) {
+	takenMeals* items;
+	int count;
 
-	}
+	void ReadFromFile();
+	void WriteToFile();
+	string fileName;
+public:
+	takenMealsTxt(int capacity = 100);
+	void Add(takenMeals takenMeal);
+	takenMeals* GetAll();
+	int GetCount();
+	~takenMealsTxt();
 };
 

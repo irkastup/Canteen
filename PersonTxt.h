@@ -9,8 +9,8 @@ using namespace std;
 class PersonTxt : public BaseTxtRepository
 {
 public:
-	PersonTxt() : BaseTxtRepository("Persons.txt", new PersonTxtSerializer()) {
-
-	}
+	PersonTxt(int capacity = 100);
+	void Add(Person person);
+	Person GetAtIndex(int index);
 };
 
