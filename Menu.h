@@ -4,7 +4,7 @@
 #include"AMealRepository.h"
 
 //#include"Canteen.h"
-#include"PersonTxt.h"
+#include"APersonRepository.h"
 #include"takenMealsTxt.h"
 #include"takenMealsService.h"
 
@@ -16,7 +16,7 @@ public:
 private:
 	FactoryProvider factoryProvider;
 	AMealRepository* mealRepo;
-	PersonTxt personRepo;
+	APersonRepository* personRepo;
 	takenMealsTxt takenMealsRepo;
 	TakenMealsService* takenMealsService;
 

@@ -1,12 +1,12 @@
 #pragma once
 #include"Person.h"
 #include"BaseTxtRepository.h"
-#include "PersonTxtSerializer.h"
+#include"APersonRepository.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
-class PersonTxt : public BaseTxtRepository
+class PersonTxt : private BaseTxtRepository, public APersonRepository
 {
 public:
 	PersonTxt(int capacity = 100);

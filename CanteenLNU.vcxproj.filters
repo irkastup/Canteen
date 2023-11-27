@@ -87,6 +87,12 @@
     <ClInclude Include="MealMemoryRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PersonTxtTemplateRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonTxtTemplateSerializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

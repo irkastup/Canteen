@@ -144,6 +144,8 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="PersonTxt.h" />
     <ClInclude Include="PersonTxtSerializer.h" />
+    <ClInclude Include="PersonTxtTemplateRepository.h" />
+    <ClInclude Include="PersonTxtTemplateSerializer.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Meal.h" />
     <ClInclude Include="Person.h" />

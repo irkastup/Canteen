@@ -113,10 +113,9 @@ void Menu::PrintAllPersons()
 {
 	cout << "All regular customers:\n";
 
-	BaseEntity** persons = personRepo.GetAll();
 
-	for (int i = 0; i < personRepo.GetCount(); i++)
-		cout << static_cast<Person*>(persons[i])->ToString() << endl;
+	for (int i = 0; i < personRepo->GetCount(); i++)
+		cout << personRepo->GetAtIndex(i).ToString() << endl;
 }
 
 
@@ -126,10 +125,10 @@ int Menu::AddNewPerson()
 	try
 	{
 	
-		int id = personRepo.GetCount() + 1;
+		int id = personRepo->GetCount() + 1;
 		Person* newPerson = new Person(id);
 		newPerson->Input();
-		personRepo.Add(*newPerson);
+		personRepo->Add(*newPerson);
 		
 		cout << "Person added successfully!\n";
 		return id;
