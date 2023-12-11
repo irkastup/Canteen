@@ -9,6 +9,8 @@ class Person : public BaseEntity {
 	int age;
 	float weight;
 	float height;
+
+	//void Validate(const char sex);
 public:
 	Person(int id = 0, char sex = 'm', int age = 0, float weight = 0, float height = 0);
 

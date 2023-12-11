@@ -1,12 +1,14 @@
 #include"Menu.h"
 #include"Queue.h"
-
+#include"Logger.h" 
 #include<iostream>
 using namespace std;
 
 Menu::Menu()
 {
 	mealRepo = factoryProvider.GetFactory()->GetMealRepository();
+	personRepo = factoryProvider.GetFactory()->GetPersonRepository();
+
 	takenMealsService = new TakenMealsService(&takenMealsRepo, mealRepo);
 }
 
@@ -70,6 +72,7 @@ void Menu::Show()
 		{
 			int NewId = AddNewPerson();
 			cout << "This person's id: " << NewId << endl;
+			
 
 		}
 		else if (x == 6)
@@ -122,22 +125,25 @@ void Menu::PrintAllPersons()
 
 int Menu::AddNewPerson()
 {
-	try
+	while (true)
 	{
+		try
+		{
+
+			int id = personRepo->GetCount() + 1;
+			Person* newPerson = new Person(id);
+			newPerson->Input();
+			personRepo->Add(*newPerson);
+
+			cout << "Person added successfully!\n";
+			return id;
+		}
+		catch (const char* err)
+		{
+			Logger::GetInstance().Log(err);
+		}
+	}
 	
-		int id = personRepo->GetCount() + 1;
-		Person* newPerson = new Person(id);
-		newPerson->Input();
-		personRepo->Add(*newPerson);
-		
-		cout << "Person added successfully!\n";
-		return id;
-	}
-	catch (const char* err)
-	{
-		cout << "Error: " << err << endl;
-		AddNewPerson();
-	}
 }
 
 

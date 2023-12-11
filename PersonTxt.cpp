@@ -19,3 +19,8 @@ Person PersonTxt::GetAtIndex(int index)
 	BaseEntity* entity = BaseTxtRepository::GetAtIndex(index);
 	return  *static_cast<Person*>(entity);
 }
+
+int PersonTxt::GetCount()
+{
+	return BaseTxtRepository::GetCount();
+}

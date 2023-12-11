@@ -1,15 +1,25 @@
 #include "Person.h"
 
+
 #include <string>
 #include <iostream>
+using namespace std;
 
 Person::Person(int id, char sex, int age, float weight, float height)
 {
+	//Validate(sex);
+	/*if (sex != 'm' && sex != 'f')
+	{
+		throw "wrong gender";
+	}
+	*/
 	this->id = id;
 	this->sex = sex;
 	this->age = age;
 	this->height = height;
 	this->weight = weight;
+
+	
 }
 
 int Person::GetId() const
@@ -90,3 +100,12 @@ std::string Person::ToString()
 	person = std::to_string(id) + ": " + sex + " " + std::to_string(age) + " " + std::to_string(weight) + " " + std::to_string(height);
 	return person;
 }
+/*
+void Person::Validate(const char sex)
+{
+	if (sex != 'm' && sex != 'f')
+	{
+		throw "wrong gender";
+	}
+}
+*/

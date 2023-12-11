@@ -12,5 +12,6 @@ public:
 	PersonTxt(int capacity = 100);
 	void Add(Person person);
 	Person GetAtIndex(int index);
+	int GetCount();
 };
 

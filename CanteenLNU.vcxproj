@@ -137,6 +137,7 @@
     <ClInclude Include="BaseTxtTemplateRepository.h" />
     <ClInclude Include="Canteen.h" />
     <ClInclude Include="FactoryProvider.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="MealMemoryRepository.h" />
     <ClInclude Include="MealTxtSerializer.h" />
     <ClInclude Include="MealTxtTemplateRepository.h" />
