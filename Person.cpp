@@ -8,11 +8,11 @@ using namespace std;
 Person::Person(int id, char sex, int age, float weight, float height)
 {
 	//Validate(sex);
-	/*if (sex != 'm' && sex != 'f')
+	if (sex != 'm' && sex != 'f')
 	{
-		throw "wrong gender";
+		throw std::invalid_argument("wrong gender");
 	}
-	*/
+	
 	this->id = id;
 	this->sex = sex;
 	this->age = age;
